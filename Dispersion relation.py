@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 def K(k):
     return ellipk(np.asarray(k, dtype=float)**2)
 
-def epsilon_values(r_values, N, Vortex, no_samples, state):
+def epsilon_values_and_h(r_values, N, Vortex, no_samples, state):
     r0 = max(r_values)
     # h(r) = electron density values on the given grid
     h_values = electron_density_values(r_values, no_samples, N, Vortex, state)
@@ -44,17 +44,20 @@ def epsilon_values(r_values, N, Vortex, no_samples, state):
         val, _ = quad(integrand, 0.0, r0, points=[r])
         epsilon_vals[i] = val
 
-    return epsilon_vals
+    return epsilon_vals , h_values
+
+
 
 import time
 def plot_dispersion(N, Vortex, no_samples, state):
     start_time = time.time()  # Start timer
 
     r1 = np.linspace(0.01, 1, 70)  # dense region
-    r2 = np.linspace(1, 5, 30)[1:] # skip duplicate at 1
+    r2 = np.linspace(1, 10, 60)[1:] # skip duplicate at 1
     r_values = np.concatenate((r1, r2))
 
-    epsilon_vals = epsilon_values(r_values, N, Vortex, no_samples, state)
+    # Get epsilon(r) and h(r)
+    epsilon_vals, h_vals = epsilon_values_and_h(r_values, N, Vortex, no_samples, state)
 
     # Fit quadratic of the form a*r^2 + c using least squares
     num_fit_points = 10  # fit using first 10 points near origin
@@ -74,24 +77,32 @@ def plot_dispersion(N, Vortex, no_samples, state):
     end_time = time.time()
     runtime_min = (end_time - start_time) / 60
 
-    # Plot original data
-    plt.figure(figsize=(6, 4))
-    plt.plot(r_values, epsilon_vals, marker='o', linestyle='-', color='b',markersize=3, label=r'$\epsilon(r)$')
+    # Create stacked plots: h(r) on top, epsilon(r) on bottom
+    fig, axes = plt.subplots(2, 1, figsize=(6, 8), sharex=True)
 
-    # Plot quadratic fit across entire range
-    plt.plot(r_quad, epsilon_quad, linestyle=':', color='r', label=f'Fit: {a:.3g}$r^2$ + {c:.3g}')
+    # Top: h(r)
+    axes[0].plot(r_values, h_vals, color='g', linestyle='-', marker='o', markersize=3, label=r'$h(r)$')
+    axes[0].set_ylabel(r'$h(r)$')
+    axes[0].set_title(f"Electron-vortex correlation function for {state} state (N={N}, samples={no_samples})\nRuntime: {runtime_min:.2f} min")  # <-- Added title
+    axes[0].grid(True)
+    axes[0].legend()
 
-    plt.xlabel(r'$r$')
-    plt.ylabel(r'$\epsilon(r)$')
-    plt.ylim((-0.2, 1.2*np.max(epsilon_vals)))
-    plt.title(f'Dispersion relation for {state} state (N={N}, Vortex={Vortex}, '
-              f'number of samples = {no_samples})\nRuntime: {runtime_min:.2f} min')
-    plt.grid(True)
-    plt.legend()
+    # Bottom: epsilon(r) and quadratic fit
+    axes[1].plot(r_values, epsilon_vals, marker='o', linestyle='-', color='b', markersize=3, label=r'$\epsilon(r)$')
+    axes[1].plot(r_quad, epsilon_quad, linestyle=':', color='r', label=f'Fit: {a:.3g}$r^2$ + {c:.3g}')
+    axes[1].set_xlabel(r'$r$')
+    axes[1].set_ylabel(r'$\epsilon(r)$')
+    limit = 1.2 * np.max(np.abs(epsilon_vals))
+    axes[1].set_ylim(-limit, limit)
+    axes[1].set_title('CE dispersion relation')
+    axes[1].grid(True)
+    axes[1].legend()
+
+    plt.tight_layout()
     plt.show()
 
 
 
 
 # Example usage:
-plot_dispersion(N=6, Vortex=True, no_samples =100000, state = "CEL")
+plot_dispersion(N=6, Vortex=True, no_samples =1000000, state = "CEL")
