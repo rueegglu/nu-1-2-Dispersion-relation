@@ -1,8 +1,9 @@
 ###-------------------------------------------------------------------------###
-###-------------  Dispersion relation ---------------------###
+###-------------  Generate data ---------------------###
 ###-------------------------------------------------------------------------###
-"""This file plots the dispersion relation
-for the Laughlin state"""
+"""This file generates the data,
+then saves it in a .npz file, ready
+to be plotted."""
 ###-------------------------------------------------------------------------###
 ###-------------------------- Import Modules -------------------------------###
 ###-------------------------------------------------------------------------###
@@ -49,7 +50,7 @@ def epsilon_values_and_h(r_values, N, Vortex, no_samples, state):
 
 
 import time
-def plot_dispersion(N, Vortex, no_samples, state):
+def generate_and_save_data(N, Vortex, no_samples, state):
     start_time = time.time()  # Start timer
 
     r1 = np.linspace(0.01, 1, 70)  # dense region
@@ -58,51 +59,31 @@ def plot_dispersion(N, Vortex, no_samples, state):
 
     # Get epsilon(r) and h(r)
     epsilon_vals, h_vals = epsilon_values_and_h(r_values, N, Vortex, no_samples, state)
+    
+    import os
 
-    # Fit quadratic of the form a*r^2 + c using least squares
-    num_fit_points = 10  # fit using first 10 points near origin
-    r_fit = r_values[:num_fit_points]
-    epsilon_fit = epsilon_vals[:num_fit_points]
-
-    # Design matrix for [r^2, constant]
-    A = np.vstack([r_fit**2, np.ones_like(r_fit)]).T
-    coeffs, _, _, _ = np.linalg.lstsq(A, epsilon_fit, rcond=None)
-    a, c = coeffs
-
-    # Generate quadratic for full range
-    r_quad = r_values
-    epsilon_quad = a * r_quad**2 + c
-
-    # Stop timer and calculate runtime in minutes
-    end_time = time.time()
-    runtime_min = (end_time - start_time) / 60
-
-    # Create stacked plots: h(r) on top, epsilon(r) on bottom
-    fig, axes = plt.subplots(2, 1, figsize=(6, 8), sharex=True)
-
-    # Top: h(r)
-    axes[0].plot(r_values, h_vals, color='g', linestyle='-', marker='o', markersize=3, label=r'$h(r)$')
-    axes[0].set_ylabel(r'$h(r)$')
-    axes[0].set_title(f"Electron-vortex correlation function for {state} state (N={N}, samples={no_samples})\nRuntime: {runtime_min:.2f} min")  # <-- Added title
-    axes[0].grid(True)
-    axes[0].legend()
-
-    # Bottom: epsilon(r) and quadratic fit
-    axes[1].plot(r_values, epsilon_vals, marker='o', linestyle='-', color='b', markersize=3, label=r'$\epsilon(r)$')
-    axes[1].plot(r_quad, epsilon_quad, linestyle=':', color='r', label=f'Fit: {a:.3g}$r^2$ + {c:.3g}')
-    axes[1].set_xlabel(r'$r$')
-    axes[1].set_ylabel(r'$\epsilon(r)$')
-    limit = 1.2 * np.max(np.abs(epsilon_vals))
-    axes[1].set_ylim(-limit, limit)
-    axes[1].set_title('CE dispersion relation')
-    axes[1].grid(True)
-    axes[1].legend()
-
-    plt.tight_layout()
-    plt.show()
+    # Directory to store data
+    os.makedirs("data", exist_ok=True)
+    
+    # Save as .npz
+    filename = f"data/dispersion_N{N}_{state}.npz"
+    np.savez(
+    filename,
+    r_values=r_values,
+    epsilon_vals=epsilon_vals,
+    h_vals=h_vals,
+    N=N,
+    state=state,
+    no_samples=no_samples,
+    Vortex=Vortex
+)
 
 
+    runtime_min = (time.time() - start_time) / 60
+    print(f"Data saved to {filename}")
+    print(f"Runtime: {runtime_min:.2f} minutes")
 
 
-# Example usage:
-plot_dispersion(N=6, Vortex=True, no_samples =1000000, state = "CEL")
+# Example usage
+generate_and_save_data(N=5
+                       , Vortex=True, no_samples=1000000, state="Laughlin")
