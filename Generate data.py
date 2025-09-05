@@ -85,5 +85,5 @@ def generate_and_save_data(N, Vortex, no_samples, state):
 
 
 # Example usage
-generate_and_save_data(N=5
-                       , Vortex=True, no_samples=1000000, state="Laughlin")
+generate_and_save_data(N=6
+                       , Vortex=True, no_samples=1000000, state="CEL")
