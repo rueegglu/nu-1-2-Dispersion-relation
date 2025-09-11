@@ -19,6 +19,7 @@ def sin(x):
     return np.sin(x)
 
 def electron_density_values(r_values, no_samples, N, Vortex, state):
+    
     # Outputs an array of electron density values which can then be plotted
     theta_values = 2 * np.arctan(r_values)
     V = (2 * pi**2)**(N - 1)
