@@ -20,10 +20,10 @@ import matplotlib.pyplot as plt
 def K(k):
     return ellipk(np.asarray(k, dtype=float)**2)
 
-def epsilon_values_and_h(r_values, N, Vortex, no_samples, state):
+def epsilon_values_and_h(r_values, N, no_samples, state):
     r0 = max(r_values)
     # h(r) = electron density values on the given grid
-    h_values = electron_density_values(r_values, no_samples, N, Vortex, state)
+    h_values = electron_density_values(r_values, no_samples, N, state)
 
     # Interpolate h(r) for continuous integration
     h_interp = interp1d(r_values, h_values, kind='linear', fill_value=0.0, bounds_error=False)
@@ -50,7 +50,7 @@ def epsilon_values_and_h(r_values, N, Vortex, no_samples, state):
 
 
 import time
-def generate_and_save_data(N, Vortex, no_samples, state):
+def generate_and_save_data(N, no_samples, state):
     start_time = time.time()  # Start timer
 
     r1 = np.linspace(0.01, 1, 70)  # dense region
@@ -58,7 +58,7 @@ def generate_and_save_data(N, Vortex, no_samples, state):
     r_values = np.concatenate((r1, r2))
 
     # Get epsilon(r) and h(r)
-    epsilon_vals, h_vals = epsilon_values_and_h(r_values, N, Vortex, no_samples, state)
+    epsilon_vals, h_vals = epsilon_values_and_h(r_values, N, no_samples, state)
     
     import os
 
@@ -75,7 +75,6 @@ def generate_and_save_data(N, Vortex, no_samples, state):
     N=N,
     state=state,
     no_samples=no_samples,
-    Vortex=Vortex
 )
 
 
@@ -86,4 +85,4 @@ def generate_and_save_data(N, Vortex, no_samples, state):
 
 # Example usage
 generate_and_save_data(N=6
-                       , Vortex=True, no_samples=1000000, state="CEL")
+                       , no_samples=10000, state="CEL")
