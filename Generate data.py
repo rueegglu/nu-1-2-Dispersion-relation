@@ -84,5 +84,5 @@ def generate_and_save_data(N, no_samples, state):
 
 
 # Example usage
-generate_and_save_data(N=6
-                       , no_samples=10000, state="CEL")
+generate_and_save_data(N=2
+                       , no_samples=10000, state="Laughlin")

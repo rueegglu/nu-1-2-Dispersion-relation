@@ -15,7 +15,7 @@ plt.rcParams.update({
 })
 
 # Parameters
-N = 6
+N = 2
 state = "Laughlin"
 
 # Load saved data
@@ -29,7 +29,6 @@ h_vals = data["h_vals"]
 N_meta = int(data["N"])
 state_meta = str(data["state"])
 no_samples = int(data["no_samples"])
-Vortex = bool(data["Vortex"])
 
 # Fitting range
 r_max = 1
