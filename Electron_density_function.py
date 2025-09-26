@@ -27,6 +27,8 @@ def electron_density_values(r_values, no_samples, N, state):
     if state == "Laughlin":
         psi_func = Psi_Laughlin
     elif state == "CEL":
+        psi_func = Psi_CEL
+    elif state == "CEL_vec":
         psi_func = Psi_CEL_vec
     else:
         raise ValueError("state must be 'Laughlin' or 'CEL'.")
