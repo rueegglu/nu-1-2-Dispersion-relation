@@ -7,6 +7,8 @@ from Laughlin_wavefunction import Psi_Laughlin
 from CEL_wavefunction import Psi_CEL
 from CEL_vec import Psi_CEL_vec
 
+np.random.seed(42)  # For reproducibility in tests
+
 pi = np.pi
 
 def electron_density_values(r_values, no_samples, N, state):
@@ -84,8 +86,8 @@ def electron_density_values(r_values, no_samples, N, state):
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
-    def plot_electron_density(N=3, no_samples=2000, state="Laughlin"):
-        r_values = np.linspace(0.01, 7, 50)  # fewer points for a quick test
+    def plot_electron_density(N=6, no_samples=1000000, state="CEL_vec"):
+        r_values = np.linspace(0.01, 7, 100)  # fewer points for a quick test
         rho_values = electron_density_values(r_values, no_samples, N, state)
         plt.figure(figsize=(6, 4))
         plt.plot(r_values, rho_values, 'bo-', label=fr'$\rho(r)$')
@@ -96,5 +98,6 @@ if __name__ == "__main__":
         plt.legend()
         plt.ylim((-1.2, 1.2 * np.max(rho_values)))
         plt.show()
+        plt.savefig(f'test_plots/electron_density_{state}_N{N}_samples{no_samples}.png', dpi=300)
 
-    plot_electron_density()
+    plot_electron_density(state="CEL_vec")

@@ -29,14 +29,13 @@ def Normalisation(q, n, m):
     )
 
 # --- Vectorized Wavefunction Components ---
-
 def R_vectorized(j, a, b, u, v):
     """
     Vectorized R function.
     j: index of the particle of interest.
     a, b: integer powers.
     u, v: spinor coordinates of ALL particles for ALL samples.
-          Shape: (no_samples, N)
+        Shape: (no_samples, N)
     """
     no_samples, N = u.shape
 
@@ -48,12 +47,14 @@ def R_vectorized(j, a, b, u, v):
     # Calculate the denominator for all k at once. Shape: (no_samples, N)
     # np.where handles the k=j case to avoid division by zero.
     denominator = u_j * v - v_j * u
-    inv_denominator = np.where(denominator != 0, 1.0 / denominator, 0)
+    epsilon = 1e-16 # A very small number to ensure stability
+    inv_denominator = np.conjugate(denominator) / (np.abs(denominator)**2 + epsilon)
+   
 
     if a == 0 and b == 0: return np.ones(no_samples)
     if a == 1 and b == 0: return np.sum(v * inv_denominator, axis=1)
     if a == 0 and b == 1: return np.sum(-u * inv_denominator, axis=1)
-    
+
     # For higher-order terms, calculate sums first
     sum_a1_b0 = np.sum(v * inv_denominator, axis=1)
     sum_a0_b1 = np.sum(u * inv_denominator, axis=1)
