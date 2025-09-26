@@ -5,6 +5,7 @@ import numpy as np
 import time
 from Laughlin_wavefunction import Psi_Laughlin
 from CEL_wavefunction import Psi_CEL
+from CEL_vec import Psi_CEL_vec
 
 pi = np.pi
 
@@ -26,7 +27,7 @@ def electron_density_values(r_values, no_samples, N, state):
     if state == "Laughlin":
         psi_func = Psi_Laughlin
     elif state == "CEL":
-        psi_func = Psi_CEL
+        psi_func = Psi_CEL_vec
     else:
         raise ValueError("state must be 'Laughlin' or 'CEL'.")
 
