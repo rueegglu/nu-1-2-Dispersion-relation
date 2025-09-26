@@ -7,7 +7,7 @@ from Laughlin_wavefunction import Psi_Laughlin
 from CEL_wavefunction import Psi_CEL
 from CEL_vec import Psi_CEL_vec
 
-np.random.seed(42)  # For reproducibility in tests
+
 
 pi = np.pi
 
