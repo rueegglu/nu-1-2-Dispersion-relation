@@ -9,7 +9,7 @@ to be plotted."""
 ###-------------------------------------------------------------------------###
 
 import numpy as np
-from Electron_density_function import electron_density_values
+from Electron_density_function import electron_density_values, Psi_CEL_vec
 from scipy.special import ellipk
 from scipy.interpolate import interp1d
 from scipy.integrate import quad
@@ -24,19 +24,48 @@ from tqdm import tqdm # For progress bars
 def K(k):
     return ellipk(np.asarray(k, dtype=float)**2)
 
-# --- Worker Function for the expensive Monte Carlo step ---
-def _worker_h_values(r_value, no_samples, N, state):
+# --- Worker Function for the expensive Monte Carlo step (with BATCHING) ---
+def _worker_h_values(r_value, no_samples, N, state, V):
     """
     Worker that calculates electron density for a single r_value.
-    This is the most computationally expensive part.
+    It processes the large number of samples in smaller batches to save memory.
     """
-    # CRITICAL: Re-seed the random number generator in each new process
-    # to ensure statistical independence of your Monte Carlo samples.
-    np.random.seed()
+    np.random.seed() # Re-seed for each process
 
-    # The original function expects an array, so we wrap the single r_value.
-    h_val = electron_density_values(np.array([r_value]), no_samples, N, state)
-    return h_val[0]
+    # --- Batching Parameters ---
+    # Choose a batch size that fits comfortably in memory. 1 million is a good start.
+    # 1M samples * (6-1) * 2 * 8 bytes ≈ 80 MB, which is very safe.
+    batch_size = 1_000_000
+    num_batches = int(np.ceil(no_samples / batch_size))
+    
+    total_value = 0.0
+
+    # The new batching loop
+    for _ in range(num_batches):
+        # This is the code from your original worker, but using batch_size
+        X_samples = np.empty((batch_size, N - 1, 2))
+        X_samples[..., 0] = np.random.uniform(0, np.pi, (batch_size, N - 1))
+        X_samples[..., 1] = np.random.uniform(0, 2 * np.pi, (batch_size, N - 1))
+
+        jacobian_factors = np.prod(np.sin(X_samples[..., 0]), axis=1)
+
+        theta = 2 * np.arctan(r_value)
+        Omega = np.array([theta, 0.0])
+        Omega_expanded = np.broadcast_to(Omega, (batch_size, 1, 2))
+        positions = np.concatenate([Omega_expanded, X_samples], axis=1)
+
+        # Assuming Psi_CEL_vec is the correct vectorized wavefunction function
+        # You'll need to import it or define it in this file.
+        psi_vals = Psi_CEL_vec(positions, N, True) 
+
+        # Sum the mean of the values for this batch, weighted by batch size
+        total_value += np.sum(jacobian_factors * np.abs(psi_vals)**2)
+
+    # Calculate the final mean across all samples
+    mean_value = total_value / no_samples
+    rho_value = V * mean_value
+    
+    return rho_value
 
 # --- Worker Function for the integration step ---
 def _worker_epsilon_values(r, r0, h_interp):
@@ -59,10 +88,12 @@ def _worker_epsilon_values(r, r0, h_interp):
 
 # --- Main function rewritten to use the parallel workers ---
 def epsilon_values_and_h(r_values, N, no_samples, state):
+    # Define V here so it can be passed to the workers.
+    V = (2 * np.pi**2)**(N - 1)
     # --- Part 1: Parallel calculation of h(r) ---
     print("Step 1/2: Calculating electron density (h_values) in parallel...")
     # Use functools.partial to pre-fill the arguments that are the same for every job
-    h_worker_func = partial(_worker_h_values, no_samples=no_samples, N=N, state=state)
+    h_worker_func = partial(_worker_h_values, no_samples=no_samples, N=N, state=state, V=V)
 
     with concurrent.futures.ProcessPoolExecutor() as executor:
         # map applies the worker function to each r_value across all available CPU cores
@@ -118,4 +149,4 @@ def generate_and_save_data(N, no_samples, state):
 # --- Main execution block ---
 # This "if __name__ == '__main__':" guard is ESSENTIAL for multiprocessing
 if __name__ == '__main__':
-    generate_and_save_data(N=6, no_samples=int(1E6), state="CEL_vec")
+    generate_and_save_data(N=6, no_samples=int(1E9), state="CEL_vec")
