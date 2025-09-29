@@ -149,4 +149,4 @@ def generate_and_save_data(N, no_samples, state):
 # --- Main execution block ---
 # This "if __name__ == '__main__':" guard is ESSENTIAL for multiprocessing
 if __name__ == '__main__':
-    generate_and_save_data(N=6, no_samples=int(1E9), state="CEL_vec")
+    generate_and_save_data(N=12, no_samples=int(1E6), state="CEL_vec")
