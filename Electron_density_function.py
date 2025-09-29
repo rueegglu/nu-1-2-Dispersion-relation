@@ -86,7 +86,7 @@ def electron_density_values(r_values, no_samples, N, state):
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
 
-    def plot_electron_density(N=6, no_samples=1000000, state="CEL_vec"):
+    def plot_electron_density(N=6, no_samples=int(1E5), state="CEL_vec"):
         r_values = np.linspace(0.01, 7, 100)  # fewer points for a quick test
         rho_values = electron_density_values(r_values, no_samples, N, state)
         plt.figure(figsize=(6, 4))

@@ -15,8 +15,8 @@ plt.rcParams.update({
 })
 
 # Parameters
-N = 2
-state = "Laughlin"
+N = 6
+state = "CEL_vec"
 
 # Load saved data
 filename = f"data/dispersion_N{N}_{state}.npz"
@@ -114,4 +114,5 @@ ax_inset.tick_params(axis='both', which='major', labelsize=8)
 
 plt.tight_layout(rect=[0, 0, 1, 0.95])
 plt.show()
+plt.savefig(f'Plots/{state}_N{N}_samples{no_samples}.png', dpi=300)
 

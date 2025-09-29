@@ -30,23 +30,24 @@ def _worker_h_values(r_value, no_samples, N, state, V):
     Worker that calculates electron density for a single r_value.
     It processes the large number of samples in smaller batches to save memory.
     """
-    np.random.seed() # Re-seed for each process
+    # --- The FIX is here ---
+    # 1. Create a new, independent random number generator for this process.
+    # This avoids conflicts with the global state.
+    rng = np.random.default_rng()
+    # -----------------------
 
-    # --- Batching Parameters ---
-    # Choose a batch size that fits comfortably in memory. 1 million is a good start.
-    # 1M samples * (6-1) * 2 * 8 bytes ≈ 80 MB, which is very safe.
     batch_size = 1_000_000
     num_batches = int(np.ceil(no_samples / batch_size))
-    
     total_value = 0.0
 
-    # The new batching loop
     for _ in range(num_batches):
-        # This is the code from your original worker, but using batch_size
         X_samples = np.empty((batch_size, N - 1, 2))
-        X_samples[..., 0] = np.random.uniform(0, np.pi, (batch_size, N - 1))
-        X_samples[..., 1] = np.random.uniform(0, 2 * np.pi, (batch_size, N - 1))
+        
+        # 2. Use the new generator object 'rng' to create random numbers.
+        X_samples[..., 0] = rng.uniform(0, np.pi, (batch_size, N - 1))
+        X_samples[..., 1] = rng.uniform(0, 2 * np.pi, (batch_size, N - 1))
 
+        # The rest of the logic is unchanged
         jacobian_factors = np.prod(np.sin(X_samples[..., 0]), axis=1)
 
         theta = 2 * np.arctan(r_value)
@@ -54,14 +55,10 @@ def _worker_h_values(r_value, no_samples, N, state, V):
         Omega_expanded = np.broadcast_to(Omega, (batch_size, 1, 2))
         positions = np.concatenate([Omega_expanded, X_samples], axis=1)
 
-        # Assuming Psi_CEL_vec is the correct vectorized wavefunction function
-        # You'll need to import it or define it in this file.
         psi_vals = Psi_CEL_vec(positions, N, True) 
 
-        # Sum the mean of the values for this batch, weighted by batch size
         total_value += np.sum(jacobian_factors * np.abs(psi_vals)**2)
 
-    # Calculate the final mean across all samples
     mean_value = total_value / no_samples
     rho_value = V * mean_value
     
@@ -99,7 +96,10 @@ def epsilon_values_and_h(r_values, N, no_samples, state):
         # map applies the worker function to each r_value across all available CPU cores
         h_results = list(tqdm(executor.map(h_worker_func, r_values), total=len(r_values)))
     
-    h_values = np.array(h_results)
+    raw_rho_values = np.array(h_results)
+
+    # --- normalisation ---
+    h_values = (raw_rho_values - raw_rho_values[-1]) / raw_rho_values[-1]
 
     # --- Part 2: Parallel calculation of epsilon(r) ---
     print("\nStep 2/2: Calculating epsilon values in parallel...")
@@ -149,4 +149,9 @@ def generate_and_save_data(N, no_samples, state):
 # --- Main execution block ---
 # This "if __name__ == '__main__':" guard is ESSENTIAL for multiprocessing
 if __name__ == '__main__':
-    generate_and_save_data(N=12, no_samples=int(1E6), state="CEL_vec")
+    # Force the start method to 'spawn' for a clean start in each process.
+    # This is the most robust way to avoid parallel-only bugs.
+    import multiprocessing
+    multiprocessing.set_start_method('spawn', force=True)
+    # --------------------------
+    generate_and_save_data(N=6, no_samples=int(1E7), state="CEL_vec")
