@@ -1,0 +1,345 @@
+nohup: ignoring input
+Step 1/2: Calculating electron density (h_values) in parallel...
+  0%|          | 0/129 [00:00<?, ?it/s]  1%|          | 1/129 [1:10:35<150:35:28, 4235.38s/it]  2%|▏         | 2/129 [1:10:55<61:56:51, 1756.00s/it]   2%|▏         | 3/129 [1:11:50<34:15:52, 978.98s/it]  35%|███▍      | 45/129 [1:12:05<48:45, 34.82s/it]    38%|███▊      | 49/129 [2:21:19<3:21:43, 151.30s/it] 42%|████▏     | 54/129 [2:21:49<2:37:57, 126.36s/it] 53%|█████▎    | 69/129 [2:22:01<1:13:08, 73.14s/it]  66%|██████▌   | 85/129 [2:22:06<32:41, 44.57s/it]   68%|██████▊   | 88/129 [2:22:25<27:57, 40.91s/it] 74%|███████▍  | 96/129 [2:22:36<16:43, 30.41s/it] 75%|███████▌  | 97/129 [3:06:09<1:18:40, 147.52s/it] 76%|███████▌  | 98/129 [3:06:58<1:13:06, 141.51s/it] 77%|███████▋  | 99/129 [3:07:16<1:05:48, 131.62s/it] 78%|███████▊  | 100/129 [3:07:39<58:13, 120.48s/it]  92%|█████████▏| 119/129 [3:07:43<05:20, 32.00s/it]  93%|█████████▎| 120/129 [3:08:12<04:46, 31.86s/it]100%|██████████| 129/129 [3:08:12<00:00, 87.54s/it]
+
+Step 2/2: Calculating epsilon values in parallel...
+  0%|          | 0/129 [00:00<?, ?it/s]/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+  1%|          | 1/129 [00:02<04:47,  2.25s/it]/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+/home/lr537/ICCFL_ben/nu-1-2-Dispersion-relation/generate_data_parallel.py:83: IntegrationWarning: The maximum number of subdivisions (50) has been achieved.
+  If increasing the limit yields no improvement it is advised to analyze 
+  the integrand in order to determine the difficulties.  If the position of a 
+  local difficulty can be determined (singularity, discontinuity) one will 
+  probably gain from splitting up the interval and calling the integrator 
+  on the subranges.  Perhaps a special-purpose integrator should be used.
+  val, _ = quad(integrand, 0.0, r0, points=[r])
+100%|██████████| 129/129 [00:02<00:00, 55.61it/s]
+
+Data saved to data/dispersion_N12_CEL_vec.npz
+Total Runtime: 188.26 minutes

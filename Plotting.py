@@ -15,7 +15,7 @@ plt.rcParams.update({
 })
 
 # Parameters
-N = 6
+N = 12
 state = "CEL_vec"
 
 # Load saved data
