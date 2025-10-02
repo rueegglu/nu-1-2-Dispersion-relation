@@ -154,4 +154,4 @@ if __name__ == '__main__':
     import multiprocessing
     multiprocessing.set_start_method('spawn', force=True)
     # --------------------------
-    generate_and_save_data(N=12, no_samples=int(1E7), state="CEL_vec")
+    generate_and_save_data(N=12, no_samples=int(1E8), state="CEL_vec")
